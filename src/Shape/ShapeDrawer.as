@@ -1,16 +1,17 @@
-package Tool 
+package Shape 
 {
 	/**
 	 * ...
 	 * @author Adam White
 	 */
 	
+	import Shape.ShapeDrawable;
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.display.DisplayObject;
 	import flash.display.Shape;
 	import flash.display.Sprite;
-	import Tool.ShapeStyle;
+	import Shape.ShapeStyle;
 	import Tool.TypeTool;
 	
 	public class ShapeDrawer 

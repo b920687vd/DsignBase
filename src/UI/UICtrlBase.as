@@ -4,9 +4,10 @@ package UI
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
 	import flash.utils.Dictionary;
-	import Tool.ShapeStyle;
-	import Tool.ShapeDrawer;
-	import Tool.ShapeDrawable;
+	
+	import Shape.ShapeStyle;
+	import Shape.ShapeDrawer;
+	import Shape.ShapeDrawable;
 	
 	/**
 	 * 基础控件类
@@ -25,22 +26,19 @@ package UI
 			this._skin = skin;
 			_view_init();
 			
-			Debug.Console("Size drawing 1" + this.width + " " + this.height);
 			_UIBase.push(this);
-			Debug.Console("Size drawing 1" + this.width + " " + this.height);
 			if (!id)
 			{
-				id = "UICtrl_".concat(_UIBase.length + 1);
-				Debug.Console("Size drawing 1" + this.width + " " + this.height);
+				id = "UICtrl_".concat(_UIBase.length - 1);
 			}
 			this.id = id;
-			Debug.Console("Size drawing 1" + this.width + " " + this.height);
 			UIBase[id] = this;
-			Debug.Console("Size drawing 1" + this.width + " " + this.height);
 		}
 		
 		private static var _UIBase:Array = new Array();
 		public static var UIBase:Dictionary = new Dictionary();
+		
+		private var _event_handler:Dictionary;
 		
 		public function set skin(skin:ShapeStyle):void
 		{
@@ -98,6 +96,8 @@ package UI
 			{
 				this.parent.removeChild(this);
 			}
+			_UIBase.splice(_UIBase.indexOf(this),1);
+			UIBase[this.id] = null;
 		}
 		
 		protected function _shape_dispose():void
@@ -117,11 +117,17 @@ package UI
 			}
 		}
 		
+		/**
+		 * 设计宽度
+		 */
 		public function get s_width():Number
 		{
 			return _width;
 		}
 		
+		/**
+		 * 设计高度
+		 */
 		public function get s_height():Number
 		{
 			return _height;

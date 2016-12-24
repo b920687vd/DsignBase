@@ -3,7 +3,7 @@ package UI
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
-	import Tool.ShapeStyle;
+	import Shape.ShapeStyle;
 	/**
 	 * 数字显示版
 	 * 固定的大小，用一个标签和一个数字组成

@@ -7,7 +7,7 @@ package UI
 	public class BoardList extends BoardBase implements IContainer
 	{
 		
-		public function BoardList(width_set:Number, height_set:Number, resize_able:Boolean=false, drag_able:Boolean=false,id="")
+		public function BoardList(width_set:Number, height_set:Number, resize_able:Boolean=false, drag_able:Boolean=false,id:String="")
 		{
 			_child = new Array();
 			_arrange = "y";
@@ -19,7 +19,7 @@ package UI
 			
 			_cont_x = _padding_x;
 			_cont_y = _padding_y;
-			super(width_set, height_set, resize_able, drag_able, id);
+			super(width_set, height_set, id, resize_able, drag_able);
 		}
 		
 		private var _child:Array;
@@ -52,10 +52,12 @@ package UI
 			if (_arrange == "x")
 			{
 				_cont_x += ui.s_width + _margin_x;
+				this.resize(_cont_x+_padding_x, this._height);
 			}
 			else if (_arrange == "y")
 			{
 				_cont_y += ui.s_height + _margin_y;
+				this.resize(this._width, _cont_y + _padding_y);
 			}
 		}
 		

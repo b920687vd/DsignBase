@@ -1,10 +1,11 @@
-package Tool 
+package Shape 
 {
 	/**
 	 * 皮肤描述类
 	 * @author Adam White
 	 */
 	import Object;
+	import Shape.ShapeFillStatus;
 	public dynamic class ShapeStyle extends Object
 	{
 		/**

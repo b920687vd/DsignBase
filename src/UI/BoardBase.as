@@ -1,6 +1,6 @@
 package UI 
 {
-	import Tool.ShapeStyle;
+	import Shape.ShapeStyle;
 	import flash.events.MouseEvent;
 	import flash.events.Event;
 	/**
@@ -13,7 +13,7 @@ package UI
 	public class BoardBase extends UICtrlBase
 	{
 		
-		public function BoardBase(width_set:Number,height_set:Number,id="",resize_able:Boolean = false,drag_able:Boolean = false,style:ShapeStyle = null) 
+		public function BoardBase(width_set:Number,height_set:Number,id:String="",resize_able:Boolean = false,drag_able:Boolean = false,style:ShapeStyle = null) 
 		{
 			if (!style)
 				style = BoardBase.Board_Style
