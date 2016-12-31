@@ -1,7 +1,8 @@
-package UI 
+package UI.Button 
 {
 	import Shape.ShapeStyle;
 	import Tool.FunctionTool;
+	import UI.UICtrlBase;
 	
 	import flash.events.Event;
 	import flash.events.MouseEvent;

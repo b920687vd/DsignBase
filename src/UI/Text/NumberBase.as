@@ -1,5 +1,7 @@
-package UI 
+package UI.Text 
 {
+	import UI.UICtrlBase;
+	import UI.Text.TextBase;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
@@ -11,14 +13,16 @@ package UI
 	 */
 	public class NumberBase extends UICtrlBase
 	{
-		
 		public function NumberBase(num_set:Number,label_set:String,id:String = "") 
 		{
 			this._num = num_set;
 			this._label = label_set;
-			super(100, 20, Number_Style,id);
-			_view_init();
+			super(100, 20, Number_Style, id);
+			this._text_ctrl = new TextBase(this._label.concat(" : ", this._num.toString()), id.concat("_text"),);
+			this.addChild(_text_ctrl)
 		}
+		
+		protected var _text_ctrl:TextBase;
 		
 		public static var Number_Style:ShapeStyle = new ShapeStyle(
 		{
@@ -36,21 +40,7 @@ package UI
 		)
 		
 		protected var _label:String;
-		protected var _num:Number; 
-		
-		override protected function _view_init():void 
-		{
-			super._view_init();
-			
-			if(this._num_field&&this._num_field.parent)
-				this.removeChild(_num_field)
-			
-			this._num_field = new TextField();
-			this.addChild(_num_field);
-			this.mouseEnabled = false;
-			this._num_field.mouseEnabled = false;
-			this.refresh();
-		}
+		protected var _num:Number;
 		
 		public function set num(num_set:Number):void
 		{
@@ -61,6 +51,7 @@ package UI
 		public function clear():void
 		{
 			this.num = 0;
+			this.refresh()
 		}
 		
 		public function set label(label_set:String):void
@@ -71,22 +62,12 @@ package UI
 		
 		override public function refresh():void 
 		{
-			if ((!this._num_field)||(!this._label)||(!this._num))
+			if ((!this._text_ctrl)||(!this._label)||(!this._num))
 				return;
 			
-			this._num_field.text = this._label.concat(" : ", this._num.toString());
-			this._num_field.setTextFormat(Number_Font);
+			this._text_ctrl.text = this._label.concat(" : ", this._num.toString());
+			this._text_ctrl.field.setTextFormat(Number_Font);
 		}
-		
-		override public function dispose():void 
-		{
-			this.removeChild(_num_field);
-			this._num_field = null;
-			super.dispose();
-		}
-		
-		protected var _num_field:TextField;
-		
 	}
 
 }

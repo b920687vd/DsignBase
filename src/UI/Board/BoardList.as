@@ -1,5 +1,8 @@
-package UI 
+package UI.Board 
 {
+	import UI.IContainer;
+	import UI.UICtrlBase;
+	
 	/**
 	 * ...
 	 * @author Adam White

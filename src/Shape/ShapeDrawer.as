@@ -62,7 +62,8 @@ package Shape
 					drawer.graphics.beginBitmapFill(style.shape_fill_param.shape_bitmap, style.shape_fill_param.matrix, style.shape_fill_param.repeat, style.shape_fill_param.smooth);
 				}
 				
-				Debug.Console("Draw "+shape);
+				Debug.Console("Draw " + shape);
+				
 				//闭包函数生成
 				if (shape == ShapeDrawable.RECTANGLE)
 				{

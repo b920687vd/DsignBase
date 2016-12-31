@@ -61,6 +61,7 @@ package UI
 		/**
 		 * 重新调整控件大小
 		 * 不输入参数则按照_width,_height值进行调整
+		 * !!! resize 和 _view_init 易形成死循环
 		 * @param	width_set
 		 * @param	height_set
 		 */
@@ -68,7 +69,7 @@ package UI
 		{
 			this._width = width_set!=-1?width_set:this._width;
 			this._height = height_set != -1?height_set:this._height;
-			_view_init();
+			this._view_init();
 			Debug.Console("Size drawing 2" + this.width + " " + this.height);
 		}
 		
