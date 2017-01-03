@@ -1,7 +1,7 @@
-package UI.Text 
+package Engin.UI.Text 
 {
-	import Shape.ShapeStyle;
-	import UI.UICtrlBase;
+	import Engin.Shape.ShapeStyle;
+	import Engin.UI.UICtrlBase;
 	
 	import flash.text.TextField;
 	import flash.text.TextFormat;

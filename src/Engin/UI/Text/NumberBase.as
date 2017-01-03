@@ -1,11 +1,11 @@
-package UI.Text 
+package Engin.UI.Text 
 {
-	import UI.UICtrlBase;
-	import UI.Text.TextBase;
+	import Engin.UI.UICtrlBase;
+	import Engin.UI.Text.TextBase;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.text.TextFormatAlign;
-	import Shape.ShapeStyle;
+	import Engin.Shape.ShapeStyle;
 	/**
 	 * 数字显示版
 	 * 固定的大小，用一个标签和一个数字组成
@@ -18,7 +18,7 @@ package UI.Text
 			this._num = num_set;
 			this._label = label_set;
 			super(100, 20, Number_Style, id);
-			this._text_ctrl = new TextBase(this._label.concat(" : ", this._num.toString()), id.concat("_text"),);
+			this._text_ctrl = new TextBase(this._label.concat(" : ", this._num.toString()), id.concat("_text"));
 			this.addChild(_text_ctrl)
 		}
 		

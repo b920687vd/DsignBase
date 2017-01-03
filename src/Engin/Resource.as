@@ -1,4 +1,4 @@
-package 
+package Engin 
 {
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
@@ -10,6 +10,7 @@ package
 	import flash.net.URLLoaderDataFormat;
 	import flash.net.URLRequest;
 	import flash.utils.Dictionary;
+	import Engin.Debug;
 	
 	/**
 	 * 【预载管理器】
@@ -81,12 +82,12 @@ package
 		 */
 		public static function add(ob:String,url:String):void
 		{
-			Debug.Console(ob+" "+url);
+			Engin.Debug.Console(ob+" "+url);
 			preloadList.push(url);
 			nameList[ob] = url;
 			nameDict[url] = ob;
 			stepList[ob] = "to load";
-			Debug.Console(ob+" 已写入 "+url+" "+nameList[ob]+" "+nameDict[url]);
+			Engin.Debug.Console(ob+" 已写入 "+url+" "+nameList[ob]+" "+nameDict[url]);
 		}
 		
 		/**后缀名识别/已测验/
@@ -134,7 +135,7 @@ package
 		{
 			for each(var i:String in preloadList)
 			{
-				Debug.Console("正在预载 "+i+" ;"+nameDict[i])
+				Engin.Debug.Console("正在预载 "+i+" ;"+nameDict[i])
 				Loading++;
 				stepList[nameDict[i]] = "loading";
 				switch(extenRec(i))
@@ -219,7 +220,7 @@ package
 			newpic.bitmapData.copyPixels(loadedpic.content.bitmapData,new Rectangle(0,0,loadedpic.width,loadedpic.height),new Point());
 			loaderList[sourcename] = newpic;
 			stepList[sourcename] = "loaded";
-			Debug.Console(sourcename+" 加载完成");
+			Engin.Debug.Console(sourcename+" 加载完成");
 			loadedBytes+= e.target.bytesTotal;
 			Loaded++;
 			Loading--;
@@ -249,13 +250,13 @@ package
 		 * 检查预载是否产完成。若完成，发送预载完成("preload_complete")事件。*/
 		private static function loadCompleteCheck():void
 		{
-			Debug.Console("当前已加载 "+Loaded+"/"+preloadList.length)
+			Engin.Debug.Console("当前已加载 "+Loaded+"/"+preloadList.length)
 			if(Loading == 0)
 			{
 				EventManager.sendEvent(new PreLoadEvent("preload_complete"));
 				var bytes:String = (loadedBytes>1024)?((loadedBytes/1024)>1024?(int(loadedBytes/1024/1024)+"M"):int(loadedBytes/1024)+"K"):(loadedBytes+"字节")
-				Debug.Console("本次预载 "+Loaded+"个对象，共占用"+bytes+"空间");
-				Debug.ConsoleBlock("资源预载完成");
+				Engin.Debug.Console("本次预载 "+Loaded+"个对象，共占用"+bytes+"空间");
+				Engin.Debug.ConsoleBlock("资源预载完成");
 			}
 		}
 	}

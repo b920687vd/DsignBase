@@ -1,13 +1,14 @@
-package UI 
+package Engin.UI 
 {
 	import flash.display.Bitmap;
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
 	import flash.utils.Dictionary;
+	import Engin.Debug;
 	
-	import Shape.ShapeStyle;
-	import Shape.ShapeDrawer;
-	import Shape.ShapeDrawable;
+	import Engin.Shape.ShapeStyle;
+	import Engin.Shape.ShapeDrawer;
+	import Engin.Shape.ShapeDrawable;
 	
 	/**
 	 * 基础控件类
@@ -70,7 +71,7 @@ package UI
 			this._width = width_set!=-1?width_set:this._width;
 			this._height = height_set != -1?height_set:this._height;
 			this._view_init();
-			Debug.Console("Size drawing 2" + this.width + " " + this.height);
+			Engin.Debug.Console("Size drawing 2" + this.width + " " + this.height);
 		}
 		
 		public function refresh():void
@@ -85,9 +86,9 @@ package UI
 			var main_shape:Sprite = ShapeDrawer.Draw(ShapeDrawable.RECTANGLE, _width, _height, _skin,"flash.display::Sprite") as Sprite
 			_shape_arr.push(main_shape);
 			this.addChild(main_shape);
-			Debug.Console("Size drawing 3" + this.width + " " + this.height);
+			Engin.Debug.Console("Size drawing 3" + this.width + " " + this.height);
 			this.setChildIndex(main_shape, 0);
-			Debug.Console("Size drawing 4" + this.width + " " + this.height);
+			Engin.Debug.Console("Size drawing 4" + this.width + " " + this.height);
 		}
 		
 		public function dispose():void

@@ -1,18 +1,19 @@
-package Shape 
+package Engin.Shape 
 {
 	/**
 	 * ...
 	 * @author Adam White
 	 */
 	
-	import Shape.ShapeDrawable;
+	import Engin.Debug;
+	import Engin.Shape.ShapeDrawable;
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.display.DisplayObject;
 	import flash.display.Shape;
 	import flash.display.Sprite;
-	import Shape.ShapeStyle;
-	import Tool.TypeTool;
+	import Engin.Shape.ShapeStyle;
+	import Engin.Tool.TypeTool;
 	
 	public class ShapeDrawer 
 	{
@@ -50,7 +51,7 @@ package Shape
 					drawer.graphics.lineStyle(style.line_size, style.line_color, style.line_alpha); 
 				
 				//根据shape_fill_staus属性填充图形
-				Debug.Console(style.shape_fill_staus)
+				Engin.Debug.Console(style.shape_fill_staus)
 				if(style.shape_fill_staus == ShapeFillStatus.COLOR)
 				{
 					if (!(style.shape_fill_param.shape_alpha - 0.0) < 0.01)
@@ -62,7 +63,7 @@ package Shape
 					drawer.graphics.beginBitmapFill(style.shape_fill_param.shape_bitmap, style.shape_fill_param.matrix, style.shape_fill_param.repeat, style.shape_fill_param.smooth);
 				}
 				
-				Debug.Console("Draw " + shape);
+				Engin.Debug.Console("Draw " + shape);
 				
 				//闭包函数生成
 				if (shape == ShapeDrawable.RECTANGLE)

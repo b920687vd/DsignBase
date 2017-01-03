@@ -1,8 +1,8 @@
-package UI.Button 
+package Engin.UI.Button 
 {
-	import Shape.ShapeStyle;
-	import Tool.FunctionTool;
-	import UI.UICtrlBase;
+	import Engin.Shape.ShapeStyle;
+	import Engin.Tool.FunctionTool;
+	import Engin.UI.UICtrlBase;
 	
 	import flash.events.Event;
 	import flash.events.MouseEvent;

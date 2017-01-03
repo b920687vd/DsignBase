@@ -1,11 +1,11 @@
-package Shape 
+package Engin.Shape 
 {
 	/**
 	 * 皮肤描述类
 	 * @author Adam White
 	 */
 	import Object;
-	import Shape.ShapeFillStatus;
+	import Engin.Shape.ShapeFillStatus;
 	public dynamic class ShapeStyle extends Object
 	{
 		/**

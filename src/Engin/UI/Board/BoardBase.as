@@ -1,9 +1,9 @@
-package UI.Board 
+package Engin.UI.Board 
 {
-	import Shape.ShapeStyle;
+	import Engin.Shape.ShapeStyle;
 	import flash.events.MouseEvent;
 	import flash.events.Event;
-	import UI.UICtrlBase;
+	import Engin.UI.UICtrlBase;
 	/**
 	 * 基础面板类
 	 * 所有面板的基类

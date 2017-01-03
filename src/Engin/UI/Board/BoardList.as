@@ -1,7 +1,8 @@
-package UI.Board 
+package Engin.UI.Board 
 {
-	import UI.IContainer;
-	import UI.UICtrlBase;
+	import Engin.Debug;
+	import Engin.UI.IContainer;
+	import Engin.UI.UICtrlBase;
 	
 	/**
 	 * ...
@@ -50,7 +51,7 @@ package UI.Board
 			ui.x = _cont_x;
 			ui.y = _cont_y;
 			
-			Debug.Console("ui size " + ui.width + " " + ui.height);
+			Engin.Debug.Console("ui size " + ui.width + " " + ui.height);
 			
 			if (_arrange == "x")
 			{
