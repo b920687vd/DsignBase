@@ -15,6 +15,9 @@ package Game.Manager
 		private static var One:GameMgr;
 		private var _status:String;
 		
+		private var _ui_mgr:UIMgr;
+		private var _model_mgr:ModelMgr;
+		
 		/**
 		 * 当前游戏状态
 		 *  -- 可能值 --
@@ -26,7 +29,10 @@ package Game.Manager
 		 */
 		public static function get Status():String
 		{
-			
+			if(One)
+				return One._status;
+			else
+				return "end";
 		}
 		
 		/**
@@ -34,7 +40,16 @@ package Game.Manager
 		 */
 		public static function Game_Init():void
 		{
+			One = new GameMgr();
+			One._init();
+		}
+		
+		private function _init():void
+		{
+			_status = "init";
 			
+			_ui_mgr = new UIMgr();
+			_model_mgr = new ModelMgr();
 		}
 		
 		/**
@@ -42,7 +57,7 @@ package Game.Manager
 		 */
 		public static function Game_Start():void
 		{
-			
+			One._status = "start";
 		}
 		
 		/**
@@ -50,7 +65,7 @@ package Game.Manager
 		 */
 		public static function Game_New():void
 		{
-			
+			One._status = "being";
 		}
 		
 		/**
@@ -58,7 +73,7 @@ package Game.Manager
 		 */
 		public static function Game_Load():void
 		{
-			
+			One._status = "stop";
 		}
 		
 		/**
@@ -66,7 +81,7 @@ package Game.Manager
 		 */
 		public static function Game_Save():void
 		{
-			
+			One._status = "stop";
 		}
 		
 		/**
@@ -74,7 +89,7 @@ package Game.Manager
 		 */
 		public static function Game_End():void
 		{
-			
+			One._status = "end";
 		}
 		
 	}
